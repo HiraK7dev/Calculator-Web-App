@@ -1,4 +1,4 @@
-const signs = [`C`, `(`, `)`, `/`, `7`, `8`, `9`, `*`, `4`, `5`, `6`, `-`, `1`, `2`, `3`, `+`, `00`, `0`, `.`, `=`];
+const signs = [`C`, `%`, `<=`, `/`, `7`, `8`, `9`, `*`, `4`, `5`, `6`, `-`, `1`, `2`, `3`, `+`, `00`, `0`, `.`, `=`];
 const functionalSigns = [];
 const btn = [];
 
@@ -22,6 +22,18 @@ for(let f=0; f<=20; f++){
     if(signs[f] === `C`){
         functionalSigns[f] = () => {
             screen.value = ``;
+            errorHandler.innerText = ``;
+        }
+    }
+    else if(signs[f] === `<=`){
+        functionalSigns[f] = () => {
+            screen.value = screen.value.substring(0, screen.value.length - 1);
+            errorHandler.innerText = ``;
+        }
+    }
+    else if(signs[f] === `%`){
+        functionalSigns[f] = () => {
+            screen.value = screen.value + `/100`;
             errorHandler.innerText = ``;
         }
     }
